@@ -32,6 +32,8 @@ public class SkeletonPanel extends JPanel {
 	 * @param sizeX The height of the window.
 	 */
 	public SkeletonPanel(Segment root, int sizeX, int sizeY) {
+		// ¿Qué tareas hace el constructor?
+		// Inicializamos el atributo root
 		this.root = root;
 		// Setup Swing window
 		JFrame frame = new JFrame("Recursive Skeleton - Forward Kinematics");
@@ -57,13 +59,25 @@ public class SkeletonPanel extends JPanel {
 
 	private void drawSkeleton(Graphics g, double parentX, double parentY, Node node) {
 		// TODO: Ponga comentarios en este método
+		// Rellenamos la gráfica con los puntos que queramos poner en las posiciones x-4, y-4, anchura (8), y altura(8))
+		// Estos puntos son los nodos que dibujamos como pequeños círculos (representan las articulaciones)
 		g.fillOval((int) node.getX() - 4, (int) node.getY() - 4, 8, 8);
+	
+		// Pintamos una línea entre los puntos (x1, y1) y los puntos (x2, y2), es decir que conecta al nodo hijo
+		// con el nodo padre
 		g.drawLine((int) parentX, (int) parentY, (int) node.getX(), (int) node.getY());
+		// Si el nodo no tiene hijos, no se hace nada (se termina) --> Caso base de la recursión
 		if (node.getChildren().size() == 0) {
 			return;
 		}
+		// Paso recursivo
+		// Recorremos cada nodo
 		for (Node child : node.getChildren()) {
+		// Pintamos el esqueleto del niño en la gráfica de manera recursiva
 			drawSkeleton(g, node.getX(), node.getY(), child);
+			
+		// Por tanto,  drawSkeleton() solo retornará cuando
+		// lo hayan hecho todos los drawSkeleton() a los que este ha llamado.
 		}
 	}
 }
