@@ -39,12 +39,12 @@ public class SkeletonVisualizer {
 		Segment neck = new Segment(40, Math.toRadians(0));
 		torso.addChild(neck);
 		// Arms
-		Segment leftUpperArm = new Segment(80, Math.toRadians(90));
-		Segment rightUpperArm = new Segment(80, Math.toRadians(-90));
+		Segment leftUpperArm = new Segment(80, Math.toRadians(-150));
+		Segment rightUpperArm = new Segment(80, Math.toRadians(150));
 		torso.addChild(leftUpperArm);
 		torso.addChild(rightUpperArm);
-		Segment leftForearm = new Segment(70, Math.toRadians(-20));
-		Segment rightForearm = new Segment(70, Math.toRadians(20));
+		Segment leftForearm = new Segment(70, Math.toRadians(0));
+		Segment rightForearm = new Segment(70, Math.toRadians(0));
 		leftUpperArm.addChild(leftForearm);
 		rightUpperArm.addChild(rightForearm);
 		// Fingers
@@ -84,6 +84,8 @@ public class SkeletonVisualizer {
 				final int[] frameIndex = { 0 };
 				// 5 frames per second
 				new Timer(200, e -> {
+					// El operador -> define una lambda expression --> Es una forma abreviada de 
+					// escribir una clase anónima que implementa una interfaz con un solo método abstracto
 					double[] angles = frames.get(frameIndex[0]);
 
 					// Apply angles to joints

@@ -44,6 +44,7 @@ public class SkeletonPanel extends JPanel {
 	}
 
 	@Override
+	// El @Override en este caso garantiza que se está sobrescribiendo el método correcto de JPanel
 	protected void paintComponent(Graphics g) {
 		// Draws the window
 		super.paintComponent(g);
