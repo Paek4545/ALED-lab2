@@ -39,8 +39,8 @@ public class SkeletonVisualizer {
 		Segment neck = new Segment(40, Math.toRadians(0));
 		torso.addChild(neck);
 		// Arms
-		Segment leftUpperArm = new Segment(80, Math.toRadians(-150));
-		Segment rightUpperArm = new Segment(80, Math.toRadians(150));
+		Segment leftUpperArm = new Segment(80, Math.toRadians(-90));
+		Segment rightUpperArm = new Segment(80, Math.toRadians(90));
 		torso.addChild(leftUpperArm);
 		torso.addChild(rightUpperArm);
 		Segment leftForearm = new Segment(70, Math.toRadians(0));
